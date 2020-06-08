@@ -1,4 +1,4 @@
-
+#!/usr/bin/env groovy
 /*
 
 Create a CI/CD pipeline
@@ -12,3 +12,21 @@ Create a CI/CD pipeline
 * using ubuntu linux LTS as the host
 * php7.3 as the php version.
 */
+pipeline {
+    agent any
+    stages {
+        stage('Develop Feature'){
+            // step definitions
+            echo 'Do some Linting'
+        }
+        stage("composer_install") {
+            sh 'composer install'
+        }
+    }
+
+
+}
+
+def launchVm() {
+   sh aws ec2 run-instances --image-id $ami --instance-type $type --ssh-key-name $key
+}

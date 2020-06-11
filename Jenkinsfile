@@ -18,8 +18,8 @@ pipeline {
     environment {
         SSH_KEY_NAME        = 'jimbuntu'
         DEVELOP_HOST        = '10.0.54.186'
-        STAGING_HOST        = '10.0.58.55'
-        PRODUCTION_HOST     = '10.0.40.122'
+        STAGING_HOST        = '10.0.53.88'
+        PRODUCTION_HOST     = '10.0.49.120'
     }
     stages {
         stage('Develop Feature'){

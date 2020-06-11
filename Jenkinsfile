@@ -110,7 +110,7 @@ def mergeBranchDevelop() {
     git config --global url."https://api:${MY_GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
     git config --global url."https://ssh:${MY_GIT_TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
     git config --global url."https://git:${MY_GIT_TOKEN}@github.com/".insteadOf "git@github.com:"
-    git checkout develop
+    git checkout -b develop
     git merge ${env.BRANCH_NAME}
 
     git push origin develop

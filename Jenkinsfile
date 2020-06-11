@@ -76,7 +76,7 @@ pipeline {
 def lintFeatureBranch() {
     sshagent(credentials : [env.SSH_KEY_NAME]) {
 
-        def statusCode = sh(returnStatus: true, script: """ssh -t ubuntu@\${DEVELOP_HOST} /bin/bash <<EOF
+        def statusCode = sh(returnStatus: true, script: """ssh -oStrictHostKeyChecking=no -t ubuntu@\${DEVELOP_HOST} /bin/bash <<EOF
 
         sudo mkdir -p /var/www/spout/${env.BUILD_NUMBER}
         sudo chown ubuntu: /var/www/spout/${env.BUILD_NUMBER}

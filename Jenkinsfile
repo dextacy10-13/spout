@@ -105,13 +105,14 @@ def mergeBranchDevelop() {
     git config --global user.email 'jamesmyersone@hotmail.com'
     git config --global user.name 'Mr James Myers'
     export GITHUB_TOKEN=${MY_GIT_TOKEN}
+    git remote rm origin
+    git remote add origin "https://dextacy10-13:${MY_GIT_TOKEN}@github.com/dextacy10-13/spout.git"
     git config --global url."https://api:${MY_GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
     git config --global url."https://ssh:${MY_GIT_TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
     git config --global url."https://git:${MY_GIT_TOKEN}@github.com/".insteadOf "git@github.com:"
     git checkout develop
     git merge ${env.BRANCH_NAME}
-    git remote rm origin
-    git remote add origin "https://dextacy10-13:${MY_GIT_TOKEN}@github.com/dextacy10-13/spout.git"
+
     git push origin develop
 EOF
     """)

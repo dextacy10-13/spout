@@ -127,7 +127,7 @@ def deployStaging() {
         sudo chown ubuntu: /var/www/spout/${env.BUILD_NUMBER}
         cd /var/www/spout/${env.BUILD_NUMBER}
         git clone https://github.com/dextacy10-13/spout.git .
-        git checkout develop
+        git checkout -b develop
         git pull
         composer install
         ./vendor/bin/phpunit --coverage-clover './reports/coverage/coverage.xml' --log-junit './reports/unitreport.xml' --coverage-html './reports/coverage/html' tests
